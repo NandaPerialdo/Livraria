@@ -7,15 +7,16 @@ using System.Threading.Tasks;
 namespace Sistema_Livraria___Fernanda_e_Lucas
 {
     class ControlLivraria
-    {
+    {   //declarando variaveis
         ModelSistema acao;
         private int opcao;
-        private int opcao2;
+        int idLivro;
+
+
         public ControlLivraria()
-        {
+        {   //instanciando
             acao = new ModelSistema();//Conecta a classe model com a control
             ConsultarOpcao = -1;
-        
         }//Fim do método construtor
 
         public int ConsultarOpcao //get set do primeiro menu
@@ -29,7 +30,7 @@ namespace Sistema_Livraria___Fernanda_e_Lucas
         {
             Console.WriteLine("\n\n ---- menu ----\n\n" +
                               "0.Sair\n" +
-                              "1.Cadastrar Livro\n" +
+                              "1.Cadastrar 2 Livros\n" +
                               "2.Cadastrar Usuario\n" +
                               "3.Fazer Login\n" +                          
                               "4.Fazer uma Compra");
@@ -44,23 +45,28 @@ namespace Sistema_Livraria___Fernanda_e_Lucas
                 Console.Clear();
                 switch (ConsultarOpcao)
                 {
-                    case 0:         
+                    case 0://FECHAR PROGRAMA   
                         Console.WriteLine("Voce fechou o programa :(");
-                    break;
-                    case 1:
+                        break;
+                    case 1://CADASTRAR LIVROS
                         Console.WriteLine("Escolha uma opcao:");
                         acao.CadastrarLivro();                    
-                    break;
-                    case 2:
+                        break;
+                    case 2://CADASTRAR USUARIO
                         acao.CadastrarUsuario();
-                    break;
-                    case 3:
+                        break;
+                    case 3://LOGIN USUARIO
                         acao.LoginUsuario();
-                    break;
+                        break;
+                    case 4://EFETUAR COMPRA                    
+                        acao.ExibirLivros();//exibir livros cadastrados que foram guardados nos vetores
+                        
+                        Console.WriteLine("Digite o codigo do livro que deseja:");
+                        idLivro = Convert.ToInt32(Console.ReadLine());//coletar id do livro desejado
 
-
+                        acao.Compra(idLivro);
+                        break;  
                 }//Fim escolha
-
             } while (ConsultarOpcao != 0);//Fim do while
         }//Fim operacao
 
