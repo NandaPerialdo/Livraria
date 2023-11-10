@@ -100,9 +100,9 @@ namespace Sistema_Livraria___Fernanda_e_Lucas
             else
             {
                 Console.WriteLine("\nResumo da Compra\n");
-                Console.WriteLine("Livro: " + titulos[idLivro] + "\n" +
+                Console.WriteLine("Livro: " + titulos[idLivro - 1] + "\n" +
                                   "Quantidade: 1\n" +
-                                  "Valor: " + valorLivro[idLivro]);
+                                  "Valor: " + valorLivro[idLivro - 1]);
 
                 Console.WriteLine("\n Insira o numero do cartão: ");
                 idCartao = Convert.ToInt32(Console.ReadLine());
